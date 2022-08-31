@@ -1,6 +1,7 @@
 import { Header } from "./Header";
 import { Category } from "./Category";
 import { Movies } from "./Movies";
+import { Nav } from "./Nav";
 
 export const Home = () => {
   return (
@@ -8,6 +9,7 @@ export const Home = () => {
       <Header />
       <Category />
       <Movies />
+      <Nav />
     </div>
   );
 };
