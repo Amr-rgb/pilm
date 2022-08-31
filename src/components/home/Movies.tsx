@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Movies = () => {
   const movies = [
@@ -53,6 +54,8 @@ export const Movies = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     },
   ];
+
+  const navigate = useNavigate();
 
   const moviesRef = useRef(null);
   const [active, setActive] = useState(Math.floor(movies.length / 2));
@@ -116,7 +119,9 @@ export const Movies = () => {
             return (
               <div
                 key={movie.id}
-                onClick={() => changeMovie(idx)}
+                onClick={() => {
+                  idx === active ? navigate(`/${movie.id}`) : changeMovie(idx);
+                }}
                 className={`cursor-pointer select-none w-52 min-w-[13rem] h-[20.625rem] rounded-3xl bg-[url(/films/minions.jpg)] bg-cover bg-center duration-500 ${classes}`}
               ></div>
             );
