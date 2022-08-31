@@ -2,7 +2,7 @@ import { FiSearch } from "react-icons/fi";
 
 export const Header = () => {
   return (
-    <div>
+    <div className="px-4">
       <div className="flex items-center justify-between">
         <div className="space-y-2">
           <p className="text-xs opacity-80">Welcome {"Amr"}</p>

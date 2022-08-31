@@ -25,7 +25,7 @@ export const Category = () => {
   ];
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 px-4">
       <div className="font-medium flex items-center justify-between py-6">
         <p>Category</p>
         <button className="text-orange text-sm flex items-center space-x-4">
