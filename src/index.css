@@ -6,4 +6,8 @@
   body {
     @apply bg-[#111] text-white font-poppins;
   }
+
+  .btn-div {
+    background: linear-gradient(to top, #111 20%, transparent);
+  }
 }
