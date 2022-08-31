@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { HiChevronLeft } from "react-icons/hi";
 import { HiVideoCamera } from "react-icons/hi";
 import { MdAccessTimeFilled } from "react-icons/md";
@@ -58,6 +58,9 @@ export const MovieDetails = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     },
   ];
+
+  const navigate = useNavigate();
+
   const { movieTitle } = useParams();
   const [ourMovie, setOurMovie] = useState(
     movies.find((m) => m.title == movieTitle)
@@ -68,9 +71,7 @@ export const MovieDetails = () => {
   return (
     <div className="px-4 pb-32">
       <div className="flex items-center relative">
-        <Link to="/">
-          <HiChevronLeft className="text-5xl p-3" />
-        </Link>
+        <HiChevronLeft onClick={() => navigate(-1)} className="text-5xl p-3" />
         <p className="font-medium absolute left-1/2 -translate-x-1/2">
           Movie Details
         </p>
