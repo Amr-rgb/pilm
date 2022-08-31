@@ -58,8 +58,10 @@ export const MovieDetails = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     },
   ];
-  const { movieId } = useParams();
-  const [ourMovie, setOurMovie] = useState(movies.find((m) => m.id == movieId));
+  const { movieTitle } = useParams();
+  const [ourMovie, setOurMovie] = useState(
+    movies.find((m) => m.title == movieTitle)
+  );
 
   const iconClasses = "mb-3 text-3xl";
 
