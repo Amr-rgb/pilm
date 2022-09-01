@@ -114,7 +114,10 @@ export const MovieDetails = () => {
 
       <div className=" flex flex-col items-center fixed bottom-0 left-0 right-0 py-8">
         <div className="btn-div absolute bottom-0 w-full py-8 pt-72 pointer-events-none"></div>
-        <button className="py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10">
+        <button
+          onClick={() => navigate("select-seats")}
+          className="py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10"
+        >
           Get Reservation
         </button>
       </div>
