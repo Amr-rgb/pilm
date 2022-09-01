@@ -16,6 +16,22 @@ export const MovieDetails = () => {
       imgUrl: "/films/minions.jpg",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
+      seats: [
+        { y: 1, x: 3 },
+        { y: 2, x: 3 },
+        { y: 3, x: 0 },
+        { y: 3, x: 3 },
+        { y: 4, x: 1 },
+        { y: 4, x: 3 },
+        { y: 6, x: 0 },
+        { y: 6, x: 1 },
+        { y: 6, x: 2 },
+        { y: 8, x: 2 },
+        { y: 8, x: 3 },
+        { y: 9, x: 3 },
+        { y: 10, x: 1 },
+        { y: 11, x: 0 },
+      ],
     },
     {
       id: "2",
@@ -26,6 +42,20 @@ export const MovieDetails = () => {
       imgUrl: "/films/minions.jpg",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
+      seats: [
+        { y: 0, x: 2 },
+        { y: 1, x: 1 },
+        { y: 1, x: 3 },
+        { y: 2, x: 3 },
+        { y: 3, x: 3 },
+        { y: 7, x: 0 },
+        { y: 7, x: 1 },
+        { y: 8, x: 0 },
+        { y: 10, x: 0 },
+        { y: 10, x: 2 },
+        { y: 10, x: 3 },
+        { y: 11, x: 1 },
+      ],
     },
     {
       id: "3",
@@ -36,6 +66,18 @@ export const MovieDetails = () => {
       imgUrl: "/films/minions.jpg",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
+      seats: [
+        { y: 2, x: 0 },
+        { y: 2, x: 1 },
+        { y: 2, x: 2 },
+        { y: 3, x: 1 },
+        { y: 4, x: 1 },
+        { y: 5, x: 1 },
+        { y: 7, x: 2 },
+        { y: 8, x: 3 },
+        { y: 9, x: 3 },
+        { y: 11, x: 2 },
+      ],
     },
     {
       id: "4",
@@ -46,6 +88,24 @@ export const MovieDetails = () => {
       imgUrl: "/films/minions.jpg",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
+      seats: [
+        { y: 1, x: 3 },
+        { y: 2, x: 1 },
+        { y: 2, x: 2 },
+        { y: 3, x: 0 },
+        { y: 3, x: 3 },
+        { y: 4, x: 2 },
+        { y: 5, x: 0 },
+        { y: 5, x: 2 },
+        { y: 7, x: 2 },
+        { y: 8, x: 0 },
+        { y: 8, x: 3 },
+        { y: 10, x: 0 },
+        { y: 10, x: 1 },
+        { y: 10, x: 3 },
+        { y: 11, x: 1 },
+        { y: 11, x: 2 },
+      ],
     },
     {
       id: "5",
@@ -56,6 +116,19 @@ export const MovieDetails = () => {
       imgUrl: "/films/minions.jpg",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
+      seats: [
+        { y: 0, x: 2 },
+        { y: 1, x: 2 },
+        { y: 3, x: 0 },
+        { y: 3, x: 1 },
+        { y: 4, x: 0 },
+        { y: 5, x: 0 },
+        { y: 8, x: 3 },
+        { y: 9, x: 3 },
+        { y: 10, x: 2 },
+        { y: 11, x: 0 },
+        { y: 11, x: 1 },
+      ],
     },
   ];
 
