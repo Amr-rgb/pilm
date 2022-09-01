@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const SeatsSelect = ({
+export const SelectSeats = ({
   seatsInfo,
   selectedInfo,
 }: {
