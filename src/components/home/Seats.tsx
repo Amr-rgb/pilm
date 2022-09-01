@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { HiChevronLeft } from "react-icons/hi";
+import { SeatsSelect } from "./SelectSeats";
 
 export const Seats = () => {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export const Seats = () => {
           Select Seats
         </p>
       </div>
+
+      <SeatsSelect />
     </div>
   );
 };
