@@ -10,4 +10,8 @@
   .btn-div {
     background: linear-gradient(to top, #111 20%, transparent);
   }
+
+  .picker-overlay {
+    background: linear-gradient(to right, #333, transparent 50%, #333);
+  }
 }
