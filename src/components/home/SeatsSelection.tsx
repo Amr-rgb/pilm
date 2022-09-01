@@ -1,14 +1,32 @@
+import { useState } from "react";
 import { Picker } from "./Picker";
 import { SelectSeats } from "./SelectSeats";
 
-export const SeatsSelection = () => {
+type SeatsSelectionType = {
+  movie: {
+    id: string;
+    title: string;
+    genre: string;
+    duration: string;
+    rating: string;
+    imgUrl: string;
+    description: string;
+    seats: { y: number; x: number }[];
+  };
+};
+
+export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
+  const [selectedInfo, setSelectedInfo] = useState<{ y: number; x: number }[]>(
+    []
+  );
+
   return (
     <div className="mt-10">
       <div className="mb-12 w-[90%] h-9 mx-auto overflow-hidden flex justify-center">
         <div className="min-w-[150vw] h-[150vw] border-4 border-orange rounded-full"></div>
       </div>
 
-      <SelectSeats />
+      <SelectSeats seatsInfo={movie.seats} setSelectedInfo={setSelectedInfo} />
 
       <div className="mt-10 flex space-x-4 justify-center">
         <div className="flex items-center space-x-2">

@@ -1,12 +1,32 @@
 import { useEffect, useState } from "react";
 
+type SelectSeatsType = {
+  seatsInfo: { y: number; x: number }[];
+  selectedInfo?: { y: number; x: number }[];
+  setSelectedInfo: React.Dispatch<
+    React.SetStateAction<
+      {
+        y: number;
+        x: number;
+      }[]
+    >
+  >;
+};
+
+type SeatType = {
+  ready: boolean;
+  value: boolean;
+  y: number;
+  x: number;
+  selectedSeats: { y: number; x: number }[];
+  toggleSelected: (y: number, x: number) => void;
+};
+
 export const SelectSeats = ({
   seatsInfo,
   selectedInfo,
-}: {
-  seatsInfo?: { y: number; x: number }[];
-  selectedInfo?: { y: number; x: number }[];
-}) => {
+  setSelectedInfo,
+}: SelectSeatsType) => {
   const makeSeats = (seatsInfo: { x: number; y: number }[]) => {
     const seats = [];
     for (let i = 0; i < 12; i++) {
@@ -27,47 +47,26 @@ export const SelectSeats = ({
     return seats;
   };
 
-  const [seats, setSeats] = useState(
-    seatsInfo
-      ? makeSeats(seatsInfo)
-      : [
-          [false, false, false],
-          [false, false, false, false],
-          [false, false, false, false],
-          [false, false, false, false],
-          [false, false, false, false],
-          [false, false, false],
-          [false, false, false],
-          [false, false, false, false],
-          [false, false, false, false],
-          [false, false, false, false],
-          [false, false, false, false],
-          [false, false, false],
-        ]
-  );
-  const [availableSeats, setAvailableSeats] = useState<
-    { y: number; x: number }[]
-  >([]);
+  const [seats, setSeats] = useState(makeSeats(seatsInfo));
   const [selectedSeats, setSelectedSeats] = useState<
     { y: number; x: number }[]
   >(selectedInfo || []);
 
-  const plusSeat = (y: number, x: number) => {
-    setAvailableSeats((prev) => [...prev, { y, x }]);
+  const toggleSelected = (y: number, x: number) => {
+    if (selectedSeats.find((item) => item.y === y && item.x === x)) {
+      setSelectedSeats((prev) =>
+        prev.filter((item) => {
+          return JSON.stringify(item) !== JSON.stringify({ y, x });
+        })
+      );
+    } else {
+      setSelectedSeats((prev) => [...prev, { y, x }]);
+    }
   };
 
-  const toggleSelected = (y: number, x: number) => {
-    let flag = false;
-    const newArr = selectedSeats
-      .map((item) => {
-        if (item.y === y && item.x === x) {
-          flag = true;
-          return;
-        } else return item;
-      })
-      .filter((i) => i);
-    setSelectedSeats((prev) => (flag ? newArr : [...prev, { y, x }]));
-  };
+  useEffect(() => {
+    setSelectedInfo(selectedSeats);
+  }, [selectedSeats]);
 
   return (
     <div className="flex justify-center space-x-6">
@@ -78,12 +77,11 @@ export const SelectSeats = ({
               {item.map((it, id) => (
                 <Seat
                   key={id}
-                  ready={Boolean(seatsInfo)}
+                  ready={Boolean(selectedInfo)}
                   value={it}
                   y={idx}
                   x={id}
                   selectedSeats={selectedSeats}
-                  plusSeat={plusSeat}
                   toggleSelected={toggleSelected}
                 />
               ))}
@@ -99,12 +97,11 @@ export const SelectSeats = ({
               {item.map((it, id) => (
                 <Seat
                   key={id}
-                  ready={Boolean(seatsInfo)}
+                  ready={Boolean(selectedInfo)}
                   value={it}
                   y={idx + 6}
                   x={id}
                   selectedSeats={selectedSeats}
-                  plusSeat={plusSeat}
                   toggleSelected={toggleSelected}
                 />
               ))}
@@ -122,38 +119,13 @@ const Seat = ({
   y,
   x,
   selectedSeats,
-  plusSeat,
   toggleSelected,
-}: {
-  ready: boolean;
-  value: boolean;
-  y: number;
-  x: number;
-  selectedSeats: { y: number; x: number }[];
-  plusSeat: (y: number, x: number) => void;
-  toggleSelected: (y: number, x: number) => void;
-}) => {
+}: SeatType) => {
   const [available, setAvailable] = useState(false);
   const [selected, setSelected] = useState(false);
 
-  const randomColor = () => {
-    const arr = [1, 2, 3, 4, 5, 6, 7];
-    const color = arr[Math.floor(Math.random() * arr.length)];
-    if (color === 1) {
-      setAvailable(true);
-    }
-  };
-
   useEffect(() => {
-    if (ready) {
-      setAvailable(value);
-    } else {
-      !available && randomColor();
-      available && plusSeat(y, x);
-    }
-  }, [available]);
-
-  useEffect(() => {
+    setAvailable(value);
     ready &&
       selectedSeats.forEach((item) => {
         if (item.y === y && item.x === x) {
