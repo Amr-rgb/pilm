@@ -11,14 +11,18 @@ type SeatsSelectionType = {
     rating: string;
     imgUrl: string;
     description: string;
+    dates: { id: string; date: { month: string; day: number } }[];
+    times: { id: string; time: string }[];
     seats: { y: number; x: number }[];
   };
 };
 
 export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
-  const [selectedInfo, setSelectedInfo] = useState<{ y: number; x: number }[]>(
-    []
-  );
+  const [selectedSeatsInfo, setSelectedSeatsInfo] = useState<
+    { y: number; x: number }[]
+  >([]);
+  const [selectedDateInfo, setSelectedDateInfo] = useState<string>();
+  const [selectedTimeInfo, setSelectedTimeInfo] = useState<string>();
 
   return (
     <div className="mt-10">
@@ -26,7 +30,10 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
         <div className="min-w-[150vw] h-[150vw] border-4 border-orange rounded-full"></div>
       </div>
 
-      <SelectSeats seatsInfo={movie.seats} setSelectedInfo={setSelectedInfo} />
+      <SelectSeats
+        seatsInfo={movie.seats}
+        setSelectedInfo={setSelectedSeatsInfo}
+      />
 
       <div className="mt-10 flex space-x-4 justify-center">
         <div className="flex items-center space-x-2">
@@ -45,7 +52,12 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
 
       <div className="mt-16 py-10 rounded-t-[2.5rem] bg-[#333] flex flex-col items-center">
         <p className="font-semibold text-lg">Select Date and Time</p>
-        <Picker />
+        <Picker
+          dates={movie.dates}
+          times={movie.times}
+          setSelectedDateInfo={setSelectedDateInfo}
+          setSelectedTimeInfo={setSelectedTimeInfo}
+        />
 
         <div className="px-8 w-full flex items-center justify-between">
           <div>

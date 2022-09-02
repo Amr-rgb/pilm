@@ -1,59 +1,27 @@
 import { useEffect, useState } from "react";
 
-export const Picker = () => {
-  const dates = [
-    {
-      id: "1",
-      date: { month: "Mar", day: 6 },
-    },
-    {
-      id: "2",
-      date: { month: "Mar", day: 7 },
-    },
-    {
-      id: "3",
-      date: { month: "Mar", day: 8 },
-    },
-    {
-      id: "4",
-      date: { month: "Mar", day: 9 },
-    },
-    {
-      id: "5",
-      date: { month: "Mar", day: 10 },
-    },
-    {
-      id: "6",
-      date: { month: "Mar", day: 11 },
-    },
-    {
-      id: "7",
-      date: { month: "Mar", day: 12 },
-    },
-  ];
-  const times = [
-    { id: "1", time: "06:00" },
-    { id: "2", time: "07:30" },
-    { id: "3", time: "08:00" },
-    { id: "4", time: "09:30" },
-    { id: "5", time: "10:30" },
-    { id: "6", time: "12:00" },
-    { id: "7", time: "13:00" },
-    { id: "8", time: "14:30" },
-    { id: "9", time: "15:30" },
-  ];
+type PickerType = {
+  dates: { id: string; date: { month: string; day: number } }[];
+  times: { id: string; time: string }[];
+  setSelectedDateInfo: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setSelectedTimeInfo: React.Dispatch<React.SetStateAction<string | undefined>>;
+};
 
+export const Picker = ({
+  dates,
+  times,
+  setSelectedDateInfo,
+  setSelectedTimeInfo,
+}: PickerType) => {
   const [activeDate, setActiveDate] = useState(Math.floor(dates.length / 2));
-  const [activeDateId, setActiveDateId] = useState<string>();
   const [activeTime, setActiveTime] = useState(Math.floor(times.length / 2));
-  const [activeTimeId, setActiveTimeId] = useState<string>();
 
   useEffect(() => {
-    setActiveDateId(dates[activeDate].id);
+    setSelectedDateInfo(dates[activeDate].id);
   }, [activeDate]);
 
   useEffect(() => {
-    setActiveTimeId(times[activeTime].id);
+    setSelectedTimeInfo(times[activeTime].id);
   }, [activeTime]);
 
   return (
