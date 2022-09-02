@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Picker } from "./Picker";
 import { SelectSeats } from "./SelectSeats";
 
@@ -17,12 +17,19 @@ type SeatsSelectionType = {
   };
 };
 
+const TICKET_PRICE = 10.5;
+
 export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
   const [selectedSeatsInfo, setSelectedSeatsInfo] = useState<
     { y: number; x: number }[]
   >([]);
   const [selectedDateInfo, setSelectedDateInfo] = useState<string>();
   const [selectedTimeInfo, setSelectedTimeInfo] = useState<string>();
+  const [price, setPrice] = useState("0.00");
+
+  useEffect(() => {
+    setPrice((selectedSeatsInfo.length * TICKET_PRICE).toFixed(2));
+  }, [selectedSeatsInfo]);
 
   return (
     <div className="mt-10">
@@ -62,7 +69,7 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
         <div className="px-8 w-full flex items-center justify-between">
           <div>
             <p className="text-sm opacity-40">Total Price</p>
-            <p className="font-semibold text-xl">$43.55</p>
+            <p className="font-semibold text-xl">${price}</p>
           </div>
           <button className="py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10">
             Book Ticket
