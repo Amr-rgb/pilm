@@ -8,7 +8,7 @@ export const Nav = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="py-4 px-14 fixed bottom-0 w-screen bg-[#111] rounded-3xl">
+    <nav className="py-4 px-14 fixed bottom-0 w-screen max-w-[26rem] mx-auto bg-[#111] rounded-3xl">
       <ul className="flex justify-between">
         <li onClick={() => navigate("/")} className="cursor-pointer ">
           <MdHomeFilled className="text-5xl p-[10px]" />

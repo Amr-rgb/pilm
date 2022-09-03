@@ -4,7 +4,7 @@
 
 @layer components {
   body {
-    @apply bg-[#111] text-white font-poppins;
+    @apply bg-[#111] text-white font-poppins max-w-[26rem] mx-auto;
   }
 
   .btn-div {
