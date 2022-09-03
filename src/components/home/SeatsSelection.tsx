@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addTicket } from "../../app/ticketsSlice";
 import { Picker } from "./Picker";
 import { SelectSeats } from "./SelectSeats";
@@ -22,6 +23,7 @@ type SeatsSelectionType = {
 const TICKET_PRICE = 10.5;
 
 export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [selectedSeatsInfo, setSelectedSeatsInfo] = useState<
@@ -45,6 +47,8 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
         price: price,
       })
     );
+
+    navigate("/my-tickets");
   };
 
   return (
