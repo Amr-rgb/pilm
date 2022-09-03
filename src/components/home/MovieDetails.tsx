@@ -22,7 +22,10 @@ export const MovieDetails = () => {
   return (
     <div className="px-4 pb-32">
       <div className="flex items-center relative">
-        <HiChevronLeft onClick={() => navigate(-1)} className="text-5xl p-3" />
+        <HiChevronLeft
+          onClick={() => navigate(-1)}
+          className="cursor-pointer text-5xl p-3"
+        />
         <p className="font-medium absolute left-1/2 -translate-x-1/2">
           Movie Details
         </p>
