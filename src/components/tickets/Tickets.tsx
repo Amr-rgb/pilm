@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { ticketsSelector } from "../../app/ticketsSlice";
 import { useState } from "react";
 import { moviesSelector } from "../../app/moviesSlice";
+import { Nav } from "../Nav";
 
 type ticketType = {
   id: string;
@@ -19,8 +20,8 @@ export const Tickets = () => {
   const tickets = useSelector(ticketsSelector);
 
   return (
-    <div className="-mb-20 px-4">
-      <div className="flex items-center relative">
+    <div className="-mb-20">
+      <div className="px-4 flex items-center relative">
         <HiChevronLeft
           onClick={() => navigate(-1)}
           className="cursor-pointer text-5xl p-3"
@@ -30,11 +31,13 @@ export const Tickets = () => {
         </p>
       </div>
 
-      <div className="mt-16 space-y-10">
+      <div className="px-4 mt-16 space-y-10">
         {tickets.map((ticket: ticketType) => (
           <Ticket key={ticket.id} ticket={ticket} />
         ))}
       </div>
+
+      <Nav />
     </div>
   );
 };
