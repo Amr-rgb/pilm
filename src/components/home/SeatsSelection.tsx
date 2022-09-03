@@ -66,7 +66,7 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
   return (
     <div className="mt-10">
       <div className="mb-12 w-[90%] h-9 mx-auto overflow-hidden flex justify-center">
-        <div className="min-w-[150vw] h-[150vw] border-4 border-orange rounded-full"></div>
+        <div className="min-w-[39rem] h-[39rem] border-4 border-orange rounded-full"></div>
       </div>
 
       <SelectSeats
