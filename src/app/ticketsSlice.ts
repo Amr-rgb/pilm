@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 type ticketType = {
   seats: {}[];
@@ -16,12 +16,15 @@ export const ticketsSlice = createSlice({
   initialState,
   reducers: {
     addTicket: (state, action) => {
-      state.tickets.push(action.payload);
+      state.tickets.push({
+        id: nanoid(),
+        ...action.payload,
+      });
     },
   },
 });
 
-export const ticketsSelector = (state: any) => state.tickets;
+export const ticketsSelector = (state: any) => state.tickets.tickets;
 
 export const { addTicket } = ticketsSlice.actions;
 

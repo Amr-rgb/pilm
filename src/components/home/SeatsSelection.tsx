@@ -38,9 +38,10 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
   const clickHandler = () => {
     dispatch(
       addTicket({
+        movieId: movie.id,
         seats: selectedSeatsInfo,
-        date: selectedDateInfo,
-        time: selectedTimeInfo,
+        dateId: selectedDateInfo,
+        timeId: selectedTimeInfo,
         price: price,
       })
     );
