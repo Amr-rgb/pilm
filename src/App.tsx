@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "./components/home/Home";
 import { MovieDetails } from "./components/home/MovieDetails";
 import { Seats } from "./components/home/Seats";
+import { Tickets } from "./components/tickets/Tickets";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="select-seats" element={<Seats />} />
           </Route>
         </Route>
+        <Route path="/my-tickets" element={<Tickets />} />
       </Routes>
     </div>
   );
