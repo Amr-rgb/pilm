@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 type PickerType = {
   dates: { id: string; date: { month: string; day: number } }[];
   times: { id: string; time: string }[];
+  selectedInfo?: { dateId: string; timeId: string };
   setSelectedDateInfo: React.Dispatch<React.SetStateAction<string | undefined>>;
   setSelectedTimeInfo: React.Dispatch<React.SetStateAction<string | undefined>>;
 };
@@ -10,11 +11,20 @@ type PickerType = {
 export const Picker = ({
   dates,
   times,
+  selectedInfo,
   setSelectedDateInfo,
   setSelectedTimeInfo,
 }: PickerType) => {
-  const [activeDate, setActiveDate] = useState(Math.floor(dates.length / 2));
-  const [activeTime, setActiveTime] = useState(Math.floor(times.length / 2));
+  const [activeDate, setActiveDate] = useState(
+    selectedInfo
+      ? dates.findIndex((d) => d.id === selectedInfo?.dateId)
+      : Math.floor(dates.length / 2)
+  );
+  const [activeTime, setActiveTime] = useState(
+    selectedInfo
+      ? times.findIndex((t) => t.id === selectedInfo?.timeId)
+      : Math.floor(times.length / 2)
+  );
 
   useEffect(() => {
     setSelectedDateInfo(dates[activeDate].id);
@@ -40,6 +50,7 @@ export const Picker = ({
           <DateCard
             key={item.id}
             date={item.date}
+            isReady={selectedInfo}
             isActive={activeDate === idx}
             setActive={() => setActiveDate(idx)}
           />
@@ -57,6 +68,7 @@ export const Picker = ({
           <TimeCard
             key={item.id}
             time={item.time}
+            isReady={selectedInfo}
             isActive={activeTime === idx}
             setActive={() => setActiveTime(idx)}
           />
@@ -68,10 +80,12 @@ export const Picker = ({
 
 const DateCard = ({
   date,
+  isReady,
   isActive,
   setActive,
 }: {
   date: { month: string; day: number };
+  isReady: any;
   isActive?: boolean;
   setActive: () => void;
 }) => {
@@ -81,6 +95,7 @@ const DateCard = ({
         isActive ? "bg-orange" : "bg-[#444]"
       }`}
       onClick={setActive}
+      disabled={isReady}
     >
       <p className="mt-1 font-medium">{date.month}</p>
       <div
@@ -96,10 +111,12 @@ const DateCard = ({
 
 const TimeCard = ({
   time,
+  isReady,
   isActive,
   setActive,
 }: {
   time: string;
+  isReady: any;
   isActive?: boolean;
   setActive: () => void;
 }) => {
@@ -109,6 +126,7 @@ const TimeCard = ({
         isActive ? "border-orange text-orange" : "border-[#444]"
       }`}
       onClick={setActive}
+      disabled={isReady}
     >
       <p className="mt-1 font-medium text-sm">{time}</p>
     </button>
