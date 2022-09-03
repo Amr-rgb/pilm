@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { addTicket } from "../../app/ticketsSlice";
 import { Picker } from "./Picker";
 import { SelectSeats } from "./SelectSeats";
@@ -18,6 +18,15 @@ type SeatsSelectionType = {
     times: { id: string; time: string }[];
     seats: { y: number; x: number }[];
   };
+};
+
+type ticketType = {
+  id: string;
+  movieId: string;
+  seats: { y: number; x: number }[];
+  dateId: string;
+  timeId: string;
+  price: string;
 };
 
 const TICKET_PRICE = 10.5;
@@ -51,6 +60,9 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
     navigate("/my-tickets");
   };
 
+  const location = useLocation();
+  const state = location.state as ticketType;
+
   return (
     <div className="mt-10">
       <div className="mb-12 w-[90%] h-9 mx-auto overflow-hidden flex justify-center">
@@ -60,6 +72,7 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
       <SelectSeats
         seatsInfo={movie.seats}
         setSelectedInfo={setSelectedSeatsInfo}
+        selectedInfo={state ? state.seats : undefined}
       />
 
       <div className="mt-10 flex space-x-4 justify-center">
@@ -82,17 +95,26 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
         <Picker
           dates={movie.dates}
           times={movie.times}
+          selectedInfo={
+            state ? { dateId: state.dateId, timeId: state.timeId } : undefined
+          }
           setSelectedDateInfo={setSelectedDateInfo}
           setSelectedTimeInfo={setSelectedTimeInfo}
         />
 
-        <div className="px-8 w-full flex items-center justify-between">
+        <div
+          className={`px-8 w-full flex items-center ${
+            state ? "justify-center" : " justify-between"
+          }`}
+        >
           <div>
             <p className="text-sm opacity-40">Total Price</p>
             <p className="font-semibold text-xl">${price}</p>
           </div>
           <button
-            className="py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10"
+            className={`py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10 ${
+              state ? "hidden" : ""
+            }`}
             onClick={clickHandler}
             disabled={Number(price) === 0}
           >

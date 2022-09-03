@@ -40,6 +40,8 @@ export const Tickets = () => {
 };
 
 export const Ticket = ({ ticket }: { ticket: ticketType }) => {
+  const navigate = useNavigate();
+
   const movies = useSelector(moviesSelector);
   const [ourMovie] = useState(
     movies.find((movie: any) => movie.id === ticket.movieId)
@@ -52,7 +54,12 @@ export const Ticket = ({ ticket }: { ticket: ticketType }) => {
   );
 
   return (
-    <div className="flex items-center space-x-6">
+    <div
+      className="cursor-pointer flex items-center space-x-6"
+      onClick={() =>
+        navigate(`/${ourMovie.title}/select-seats`, { state: ticket })
+      }
+    >
       <div
         className={`bg-[url(${ourMovie.imgUrl})] bg-cover bg-center h-24 w-24 rounded-2xl`}
       ></div>
