@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTicket } from "../../app/ticketsSlice";
 import { Picker } from "./Picker";
 import { SelectSeats } from "./SelectSeats";
 
@@ -20,6 +22,8 @@ type SeatsSelectionType = {
 const TICKET_PRICE = 10.5;
 
 export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
+  const dispatch = useDispatch();
+
   const [selectedSeatsInfo, setSelectedSeatsInfo] = useState<
     { y: number; x: number }[]
   >([]);
@@ -30,6 +34,17 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
   useEffect(() => {
     setPrice((selectedSeatsInfo.length * TICKET_PRICE).toFixed(2));
   }, [selectedSeatsInfo]);
+
+  const clickHandler = () => {
+    dispatch(
+      addTicket({
+        seats: selectedSeatsInfo,
+        date: selectedDateInfo,
+        time: selectedTimeInfo,
+        price: price,
+      })
+    );
+  };
 
   return (
     <div className="mt-10">
@@ -71,7 +86,11 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
             <p className="text-sm opacity-40">Total Price</p>
             <p className="font-semibold text-xl">${price}</p>
           </div>
-          <button className="py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10">
+          <button
+            className="py-[25px] px-[50px] rounded-full bg-orange font-semibold text-black z-10"
+            onClick={clickHandler}
+            disabled={Number(price) === 0}
+          >
             Book Ticket
           </button>
         </div>
