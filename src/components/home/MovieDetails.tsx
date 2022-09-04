@@ -33,7 +33,8 @@ export const MovieDetails = () => {
 
       <div className="mt-16 flex items-start space-x-4">
         <div
-          className={`rounded-3xl bg-[url(${ourMovie?.imgUrl})] bg-cover bg-center flex-1 h-[24.5rem]`}
+          className={`rounded-3xl bg-cover bg-center flex-1 h-[24.5rem]`}
+          style={{ backgroundImage: `url(${ourMovie?.imgUrl})` }}
         ></div>
 
         <div className="space-y-4">

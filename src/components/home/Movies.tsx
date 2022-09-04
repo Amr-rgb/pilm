@@ -90,7 +90,8 @@ export const Movies = () => {
                     ? navigate(`/${movie.title}`)
                     : changeMovie(idx);
                 }}
-                className={`cursor-pointer select-none w-52 min-w-[13rem] h-[20.625rem] rounded-3xl bg-[url(/films/minions.jpg)] bg-cover bg-center duration-500 ${classes}`}
+                className={`cursor-pointer select-none w-52 min-w-[13rem] h-[20.625rem] rounded-3xl bg-cover bg-center duration-500 ${classes}`}
+                style={{ backgroundImage: `url(${movie.imgUrl})` }}
               ></div>
             );
           })}
