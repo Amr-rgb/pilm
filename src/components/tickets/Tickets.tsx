@@ -64,7 +64,8 @@ export const Ticket = ({ ticket }: { ticket: ticketType }) => {
       }
     >
       <div
-        className={`bg-[url(${ourMovie.imgUrl})] bg-cover bg-center h-24 w-24 rounded-2xl`}
+        className={`bg-cover bg-center h-24 w-24 rounded-2xl`}
+        style={{ backgroundImage: `url(${ourMovie.imgUrl})` }}
       ></div>
       <div className="flex-1 flex justify-between space-x-2">
         <div className="space-y-2">
