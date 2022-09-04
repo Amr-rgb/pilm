@@ -23,7 +23,7 @@ export const Tickets = () => {
     <div className="-mb-20">
       <div className="px-4 flex items-center relative">
         <HiChevronLeft
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/")}
           className="cursor-pointer text-5xl p-3"
         />
         <p className="font-medium absolute left-1/2 -translate-x-1/2">
