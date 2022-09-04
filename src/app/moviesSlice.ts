@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   {
     id: "1",
-    title: "Minions: The Rise Of Gru",
-    genre: "Comedy",
-    duration: "1h 20m",
-    rating: "8.7",
-    imgUrl: "/films/minions.jpg",
+    title: "DC League of Super-Pets",
+    genre: "Adventure",
+    duration: "1h 45m",
+    rating: "7.5",
+    imgUrl: "/films/dc-league.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     dates: [
@@ -70,11 +70,11 @@ const initialState = [
   },
   {
     id: "2",
-    title: "Minions: The Rise Of Gru",
+    title: "Luck",
     genre: "Comedy",
-    duration: "1h 20m",
-    rating: "8.7",
-    imgUrl: "/films/minions.jpg",
+    duration: "1h 45m",
+    rating: "6.3",
+    imgUrl: "/films/luck.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     dates: [
@@ -137,8 +137,8 @@ const initialState = [
     id: "3",
     title: "Minions: The Rise Of Gru",
     genre: "Comedy",
-    duration: "1h 20m",
-    rating: "8.7",
+    duration: "1h 27m",
+    rating: "6.6",
     imgUrl: "/films/minions.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
@@ -198,11 +198,11 @@ const initialState = [
   },
   {
     id: "4",
-    title: "Minions: The Rise Of Gru",
+    title: "The Sea Beast",
     genre: "Comedy",
-    duration: "1h 20m",
-    rating: "8.7",
-    imgUrl: "/films/minions.jpg",
+    duration: "1h 55m",
+    rating: "7.1",
+    imgUrl: "/films/sea-beast.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     dates: [
@@ -267,11 +267,11 @@ const initialState = [
   },
   {
     id: "5",
-    title: "Minions: The Rise Of Gru",
-    genre: "Comedy",
-    duration: "1h 20m",
-    rating: "8.7",
-    imgUrl: "/films/minions.jpg",
+    title: "The Bad Guys",
+    genre: "Adventure",
+    duration: "1h 40m",
+    rating: "6.8",
+    imgUrl: "/films/bad-guys.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quod et tempora nulla ad eos adipisci! Similique adipisci ea libero, magni harum vitae delectus accusamus omnis tempora temporibus esse asperiores deserunt ab dolore reiciendis aspernatur expedita labore maiores ad exercitationem nisi, molestias tenetur? Eos asperiores iure libero unde obcaecati incidunt adipisci molestiae ex. Distinctio, sapiente animi quod, incidunt sed quasi consequuntur temporibus quia, alias a laborum. Tenetur suscipit quas vero recusandae repudiandae sunt voluptate animi est reprehenderit, officia repellendus eveniet cum voluptatum rerum aspernatur. Ipsa laboriosam animi quas doloribus id cumque sapiente recusandae accusamus! Deleniti accusantium nam consectetur ex molestias?",
     dates: [
