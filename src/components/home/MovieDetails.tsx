@@ -23,7 +23,9 @@ export const MovieDetails = () => {
     <div className="px-4 pb-32">
       <div className="flex items-center relative">
         <HiChevronLeft
-          onClick={() => navigate(-1)}
+          onClick={() =>
+            navigate("/", { state: ourMovie?.title, replace: true })
+          }
           className="cursor-pointer text-5xl p-3"
         />
         <p className="font-medium absolute left-1/2 -translate-x-1/2">
