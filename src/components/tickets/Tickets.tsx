@@ -20,7 +20,8 @@ export const Tickets = () => {
   const tickets = useSelector(ticketsSelector);
 
   useEffect(() => {
-    window.sessionStorage.clear();
+    window.sessionStorage.removeItem("active");
+    window.sessionStorage.setItem("tickets", JSON.stringify(tickets));
   }, []);
 
   return (

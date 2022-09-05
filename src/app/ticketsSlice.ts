@@ -8,7 +8,7 @@ type ticketType = {
 };
 
 const initialState: { tickets: ticketType[] } = {
-  tickets: [],
+  tickets: JSON.parse(window.sessionStorage.getItem("tickets")!) || [],
 };
 
 export const ticketsSlice = createSlice({
