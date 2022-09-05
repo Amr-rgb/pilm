@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { moviesSelector } from "../../app/moviesSlice";
 
 type movieType = {
@@ -22,13 +22,13 @@ export const Movies = () => {
   const movies: moviesType = useSelector(moviesSelector);
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const { state } = location;
 
   const moviesRef = useRef(null);
   const [active, setActive] = useState(
-    state
-      ? movies.findIndex((m) => m.title === state)
+    window.sessionStorage.getItem("active")
+      ? movies.findIndex(
+          (m) => m.id === window.sessionStorage.getItem("active")
+        )
       : Math.floor(movies.length / 2)
   );
   const [prev, setPrev] = useState(Math.floor(movies.length / 2));

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { HiChevronLeft } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { ticketsSelector } from "../../app/ticketsSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { moviesSelector } from "../../app/moviesSlice";
 import { Nav } from "../Nav";
 
@@ -18,6 +18,10 @@ type ticketType = {
 export const Tickets = () => {
   const navigate = useNavigate();
   const tickets = useSelector(ticketsSelector);
+
+  useEffect(() => {
+    window.sessionStorage.clear();
+  }, []);
 
   return (
     <div className="-mb-20">

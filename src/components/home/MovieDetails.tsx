@@ -3,7 +3,7 @@ import { HiChevronLeft } from "react-icons/hi";
 import { HiVideoCamera } from "react-icons/hi";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { AiTwotoneStar } from "react-icons/ai";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { moviesSelector } from "../../app/moviesSlice";
 import { moviesType } from "./Movies";
@@ -17,15 +17,17 @@ export const MovieDetails = () => {
     movies.find((m) => m.title == movieTitle)
   );
 
+  useEffect(() => {
+    window.sessionStorage.setItem("active", "" + ourMovie?.id);
+  }, []);
+
   const iconClasses = "mb-3 text-3xl";
 
   return (
     <div className="px-4 pb-32">
       <div className="flex items-center relative">
         <HiChevronLeft
-          onClick={() =>
-            navigate("/", { state: ourMovie?.title, replace: true })
-          }
+          onClick={() => navigate(-1)}
           className="cursor-pointer text-5xl p-3"
         />
         <p className="font-medium absolute left-1/2 -translate-x-1/2">
