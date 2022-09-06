@@ -5,7 +5,14 @@ export const Header = () => {
     <div className="px-4">
       <div className="flex items-center justify-between">
         <div className="space-y-2">
-          <p className="text-xs opacity-80">Welcome {"Amr"}</p>
+          <div className="flex items-center space-x-1">
+            <p className="text-xs opacity-80">Welcome {"Amr"}</p>
+            <img
+              className="w-4"
+              src="/emojis/hand-emoji.png"
+              alt="handwaving"
+            />
+          </div>
           <p className="font-medium text-sm">
             Let&#39;s relax and watch a movie !
           </p>
