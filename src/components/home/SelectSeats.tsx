@@ -138,7 +138,13 @@ const Seat = ({
     <button
       className={`mt-2 ml-1 mr-1 w-8 h-8 rounded-lg`}
       style={{
-        background: available ? (selected ? "#fdb33a" : "#fff") : "#333",
+        background: available
+          ? selected
+            ? "#fdb33a"
+            : "#fff"
+          : selected
+          ? "#fdb33a"
+          : "#333",
       }}
       onClick={() => {
         toggleSelected(y, x);

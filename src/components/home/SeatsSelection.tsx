@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import { editSeats } from "../../app/moviesSlice";
 import { addTicket } from "../../app/ticketsSlice";
 import { Picker } from "./Picker";
 import { SelectSeats } from "./SelectSeats";
@@ -54,6 +55,13 @@ export const SeatsSelection = ({ movie }: SeatsSelectionType) => {
         dateId: selectedDateInfo,
         timeId: selectedTimeInfo,
         price: price,
+      })
+    );
+
+    dispatch(
+      editSeats({
+        movieId: movie.id,
+        seats: selectedSeatsInfo.map((s) => JSON.stringify(s)),
       })
     );
 

@@ -334,9 +334,20 @@ const initialState = [
 export const moviesSlice = createSlice({
   name: "movies",
   initialState,
-  reducers: {},
+  reducers: {
+    editSeats: (state, action) => {
+      const movie = state.find((m) => m.id === action.payload.movieId);
+      for (let i = movie!.seats.length - 1; i >= 0; i--) {
+        if (action.payload.seats.includes(JSON.stringify(movie!.seats[i]))) {
+          movie!.seats.splice(i, 1);
+        }
+      }
+    },
+  },
 });
 
 export const moviesSelector = (state: any) => state.movies;
+
+export const { editSeats } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
